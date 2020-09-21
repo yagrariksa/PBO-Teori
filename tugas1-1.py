@@ -1,17 +1,21 @@
 #!usr/bin/env python3
 
 class Bulat:
-	def luas(jari):
-		a = jari**2
-		b = 22/7
-		c = a*b
-		print("luas : ",c)
-	def volume(jari):
-		a = 4/3
-		b = 22/7
-		c = jari**3
-		d = a*b*c
-		print("volume : ",d)
+    def luas(jari):
+        a = jari**2
+        b = 22/7
+        c = a*b
+        print("luas : ", c)
+        return c
+
+    def volume(jari):
+        a = 4/3
+        b = 22/7
+        c = jari**3
+        d = a*b*c
+        print("volume : ", d)
+        return d
+
 
 jari1 = 7
 jari2 = 14

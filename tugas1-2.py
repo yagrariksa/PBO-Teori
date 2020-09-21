@@ -9,12 +9,14 @@ class Bulat:
 		b = 22/7
 		c = a*b
 		print("luas : ",c)
+		return c
 	def volume(self):
 		a = 4/3
 		b = 22/7
 		c = self._jari**3
 		d = a*b*c
 		print("volume : ",d)
+		return d
 	def setJari(self, jari):
 		self._jari = jari
 	def getJari(self):
