@@ -1,87 +1,114 @@
 #!/usr/bin/env python3
 
-class bilbul:
-	def hitung(self, a=None, b=None, c=None, d=None):
-		sum = 0
-		if a is None:
-			print("anda tidak memasukkan parameter pertama")
-		elif b is None:
-			print("anda tidak memasukkan parameter kedua")
-		elif d is None:
-			if c is None:
-				sum = a+b
-				self.cetak(sum)
-			else:
-				sum = a+b+c
-				self.cetak(sum)
-		else:
-			sum = a+b+c+d
-			self.cetak(sum)
-	def cetak(self, sum):
-		print("hasil : ",sum)
-print("=======soal pertama=========")
-satu = bilbul()
-satu.hitung()
-satu.hitung(3)
-satu.hitung(3,4)
-satu.hitung(3,4,5)
-satu.hitung(3,4,5,6)
+class Vektor:
 
-class bungamajemuk:
-	def hitung(self,modalawal=None,bunga=None,jangkawaktu=None):
-		if modalawal is None:
-			print("anda belum memasukkan modalawal")
-		elif bunga is None:
-			print("anda belum memasukkan bunga")
-		elif jangkawaktu is None:
-			print("anda belum memasukkan jangka waktu")
-		else:
-			bag1 = 1+bunga
-			bag2 = bag1**jangkawaktu
-			bag3 = modalawal*bag2
-			modalakhir = bag3
-			print("modal akhir : ",modalakhir)
+    def __init__(self, n=0):
+        self.vek = []
+        for i in range(n):
+            str = 'masukan ke-', i, ' : '
+            x = input(str)
+            print(x)
+            self.vek.append(int(x))
 
-print("=======soal kedua=========")
-dua = bungamajemuk()
-dua.hitung()
-dua.hitung(1000000)
-dua.hitung(1000000,0.02)
-dua.hitung(1000000,0.02,5)
+    def tampil(self):
+        print(self.vek)
 
-class volsilinder:
-	def hitung(self, jari=None, tinggi=None):
-		if jari is None:
-			print("anda tidak memasukkan parameter pertama untuk jari-jari")
-		elif tinggi is None:
-			print("anda tidak memasukkan parameter kedua untuk tinggi")
-		else:
-			pi = 22/7
-			kuadrat = jari**2
-			hasil = pi*kuadrat*tinggi
-			print("volume silinder : ", hasil)
+    def jumlah(self, a, b=None):
+        if b is None:
+            v2 = Vektor(0)
+            for i in range(len(self.vek)):
+                x = self.vek[i]+a.vek[i]
+                v2.vek.append(int(x))
+            return v2
+        else:
+            v2 = Vektor(0)
+            for i in range(len(a.vek)):
+                x = a.vek[i]+b.vek[i]
+                v2.vek.append(int(x))
+            return v2
 
-print("=======soal ketiga=========")
-tiga = volsilinder()
-tiga.hitung()
-tiga.hitung(2)
-tiga.hitung(2,3)
+    def kurang(self, a, b=None):
+        if b is None:
+            v2 = Vektor()
+            for i in range(len(self.vek)):
+                x = self.vek[i]-a.vek[i]
+                v2.vek.append(int(x))
+            return v2
+        else:
+            v2 = Vektor()
+            for i in range(len(a.vek)):
+                x = a.vek[i]-b.vek[i]
+                v2.vek.append(int(x))
+            return v2
 
-class volbalok:
-	def hitung(self,p=None,l=None,t=None):
-		if p is None:
-			print("anda tidak memasukkan panjang balok")
-		elif l is None:
-			print("anda tidak memasukkan lebar balok")
-		elif t is None:
-			print("anda tidak memasukkan tinggi balok")
-		else:
-			vol = p*l*t
-			print("volume balok : ", vol)
 
-print("=======soal keempat=========")
-empat = volbalok()
-empat.hitung()
-empat.hitung(2)
-empat.hitung(2,3)
-empat.hitung(2,3,4)
+print("############# nomor 1 >>>>>>>>>>")
+pet = Vektor(3)
+pot = Vektor(3)
+pet.tampil()
+print(pot.vek)
+p3 = pot.jumlah(pet)
+p3.tampil()
+p4 = p3.kurang(pet, pot)
+p4.tampil()
+
+
+class Matriks:
+    def __init__(self, x, y):
+        self.matriks = []
+        for i in range(x):
+            aa = []
+            for j in range(y):
+                string = 'masukkan ', i, '-', j, ' : '
+                aa.append(int(input(string)))
+            self.matriks.append(aa)
+
+    def tampil(self):
+        for i in self.matriks:
+            print(i)
+
+
+print("############# nomor 2 >>>>>>>>>>")
+m1 = Matriks(3, 4)
+m1.tampil()
+
+
+class Array2DimBedaElemen:
+    def __init__(self, a):
+        self.arr = []
+        for i in range(3):
+            aa = []
+            for j in range(a[i]):
+                aa.append(int(input('input: ')))
+            self.arr.append(aa)
+
+    def tampil(self):
+        for i in self.arr:
+            print(i)
+
+
+print("############# nomor 3 >>>>>>>>>>")
+t3 = Array2DimBedaElemen([3, 2, 4])
+t3.tampil()
+
+class Array3DimSama:
+	def __init__(self,a,b,c):
+		self.arr = []
+		for i in range(a):
+			barr = []
+			for j in range(b):
+				carr = []
+				for k in range(c):
+					carr.append(int(input('input: ')))
+				barr.append(carr)
+			self.arr.append(barr)
+
+	def tampil(self):
+		for i in self.arr:
+			for j in i:
+				print(j)
+			print('-')
+
+print("############### nomor 4 >>>>>>>>>")
+t4 = Array3DimSama(3,2,3)
+t4.tampil()
