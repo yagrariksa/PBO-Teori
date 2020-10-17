@@ -5,8 +5,8 @@ class Vektor:
     def __init__(self, n=0):
         self.vek = []
         for i in range(n):
-            str = 'masukan ke-', i, ' : '
-            x = input(str)
+            string = 'input ' + str(i) + ' : '
+            x = input(string)
             print(x)
             self.vek.append(int(x))
 
@@ -91,24 +91,26 @@ print("############# nomor 3 >>>>>>>>>>")
 t3 = Array2DimBedaElemen([3, 2, 4])
 t3.tampil()
 
-class Array3DimSama:
-	def __init__(self,a,b,c):
-		self.arr = []
-		for i in range(a):
-			barr = []
-			for j in range(b):
-				carr = []
-				for k in range(c):
-					carr.append(int(input('input: ')))
-				barr.append(carr)
-			self.arr.append(barr)
 
-	def tampil(self):
-		for i in self.arr:
-			for j in i:
-				print(j)
-			print('-')
+class Array3DimSama:
+    def __init__(self, a, b, c):
+        self.arr = []
+        for i in range(a):
+            barr = []
+            for j in range(b):
+                carr = []
+                for k in range(c):
+                    carr.append(int(input('input: ')))
+                barr.append(carr)
+            self.arr.append(barr)
+
+    def tampil(self):
+        for i in self.arr:
+            for j in i:
+                print(j)
+            print('-')
+
 
 print("############### nomor 4 >>>>>>>>>")
-t4 = Array3DimSama(3,2,3)
+t4 = Array3DimSama(3, 2, 3)
 t4.tampil()
